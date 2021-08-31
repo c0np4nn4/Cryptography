@@ -193,7 +193,7 @@ void m_layer(u64& prev_state, u64& curr_state) {
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			u4 tmp = (tmp_state >> static_cast<u64>(60)) & MASK;
-			nibble[i][j] = tmp;
+			nibble[j][i] = tmp;
 			tmp_state = tmp_state << static_cast<u64>(4);			
 		}
 	}
@@ -210,7 +210,7 @@ void m_layer(u64& prev_state, u64& curr_state) {
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			curr_state = curr_state << static_cast<u64>(4);
-			curr_state |= result[i][j];
+			curr_state |= result[j][i];
 		}
 	}
 }
